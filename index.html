@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage with Alpine</title>
+    <script src="mainScript.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous" defer></script>
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body x-data="mainApp()" x-cloak>
+    <div x-show="!loggedIn">
+    <div id="auth-section">
+        <a href="login.html" hx-get="login.html" hx-target="#auth-section" hx-swap="innerHTML" hx-trigger="load"></a>
+    </div>
+    </div>
+   <div x-show="loggedIn">
+    <p>Welcome, <span x-text="username"></span></p>
+    <button type="button" @click="logout">Logout</button>
+   </div> 
+</body>
+</html>

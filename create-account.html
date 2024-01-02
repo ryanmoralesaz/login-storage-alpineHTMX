@@ -1,0 +1,6 @@
+<h1>Create Account</h1>
+<input type="text" x-model="newUsername" placeholder="New Username" />
+<input type="password" x-model="newPassword" placeholder="New Password" />
+<button type="button" @click="createAccount">Create Account</button>
+<br>
+<a href="login.html" hx-get="login.html" hx-target="#auth-section" hx-swap="innerHTML">Already have an account? Login</a>
